@@ -17,4 +17,7 @@ public function conectar (){
         exit;
 }
 }
+public function tomarConexion() {
+    return $this->pdo;
+}
 }

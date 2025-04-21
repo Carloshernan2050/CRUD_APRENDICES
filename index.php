@@ -26,6 +26,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'guardar_aprendiz') {
                     <a href="view/crear_aprendiz.php" class="btn btn-sm btn-primary">
                         <i class="fa-solid fa-plus"></i> Crear Aprendiz
                     </a>
+                    <a href='view/ver_programas.php?id={$id}' class='btn btn-info btn-sm'><i class='fa-solid fa-eye'></i> Ver programas</a>
                 </div>
 
                 <table class="table table-sm table-hover table-responsive">
@@ -52,9 +53,10 @@ if (isset($_GET['action']) && $_GET['action'] === 'guardar_aprendiz') {
                                 echo "<th scope='row'>{$contador}</th>";
                                 echo "<td>{$nombre}</td>";
                                 echo "<td>{$edad} años</td>";
-                                echo "<td><a href='view/ver_aprendiz.php?id={$id}' class='btn btn-info btn-sm'><i class='fa-solid fa-eye'></i> Ver</a></td>";
+                                echo "<td><a href='view/ver_aprendices.php?id={$id}' class='btn btn-info btn-sm'><i class='fa-solid fa-eye'></i> Ver</a></td>";
                                 echo "<td><a href='view/modificar_aprendiz.php?id={$id}' class='btn btn-warning btn-sm'><i class='fa-solid fa-pencil'></i> Editar</a></td>";
-                                echo "<td><a href='delete.php?id={$id}' class='btn btn-danger btn-sm' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este aprendiz?\")'><i class='fa-solid fa-circle-xmark'></i> Eliminar</a></td>";
+                                echo "<td><a href='view/eliminar_aprendiz.php?id={$id}' class='btn btn-danger btn-sm' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este aprendiz?\")'><i class='fa-solid fa-circle-xmark'></i> Eliminar</a></td>";
+
                                 echo "</tr>";
                                 $contador++;
                             }

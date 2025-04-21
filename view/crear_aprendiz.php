@@ -63,17 +63,21 @@ $actionURL = $esEdicion
             <!-- Grupo sanguíneo -->
             <div class="col-md-4 mb-3">
                 <label for="grupo_sanguineo" class="form-label">Grupo Sanguíneo</label>
-                <select class="form-select" name="grupo_sanguineo" id="grupo_sanguineo" required>
-                    <option value="" disabled <?= !$esEdicion ? 'selected' : '' ?>>Selecciona</option>
-                    <?php
-                    // Definir grupos sanguíneos con positivos primero
-                    $grupos = ['A+' => 'A+', 'B+' => 'B+', 'AB+' => 'AB+', 'O+' => 'O+', 'A-' => 'A-', 'B-' => 'B-', 'AB-' => 'AB-', 'O-' => 'O-'];
-                    foreach ($grupos as $grupo => $nombre) {
-                        $selected = $esEdicion && $aprendiz['grupo_sanguineo'] === $nombre ? 'selected' : '';
-                        echo "<option value=\"$grupo\" $selected>$nombre</option>";
-                    }
-                    ?>
-                </select>
+                    <select class="form-select" name="grupo_sanguineo" id="grupo_sanguineo" required>
+                        <option value="0" disabled <?= !$esEdicion ? 'selected' : '' ?>>Selecciona</option>
+                        <?php
+                        // Definir grupos sanguíneos con positivos primero
+                        $grupos = [
+                            1 => 'A+', 2 => 'B+', 3 => 'AB+', 4 => 'O+', 
+                            5 => 'A-', 6 => 'B-', 7 => 'AB-', 8 => 'O-'
+                        ];
+                        foreach ($grupos as $id => $nombre) {
+                            // Si estamos en modo edición, seleccionamos el grupo sanguíneo actual
+                            $selected = $esEdicion && $aprendiz['id_grupo_sanguineo'] == $id ? 'selected' : '';
+                            echo "<option value=\"$id\" $selected>$nombre</option>";
+                        }
+                        ?>
+                    </select>
             </div>
 
             <!-- Tipo documento -->

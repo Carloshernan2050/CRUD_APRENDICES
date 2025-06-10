@@ -1,0 +1,62 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e6eee9;
+}
+
+.navbar {
+    background-color:rgb(42, 28, 170);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;   
+}
+
+.navbar-brand,
+.nav-link,
+.dropdown-item {
+    color: #eaf1ed !important;
+}
+
+.dropdown-menu {
+    background-color: rgb(42, 28, 170);
+    border: none;
+}
+
+.dropdown-item:hover {
+    background-color: #18b459;
+}
+
+.card-header {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn {
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.encabezados-lista {
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-color: rgb(124, 115, 201); 
+    color: rgb(244, 252, 252);
+    padding: 10px;
+    border-radius: 5px; 
+}
+
+.editar-crear{
+    background-color: rgb(132, 125, 192); 
+    color: rgb(244, 252, 252);
+    padding: 10px;
+    border-radius: 5px; 
+}
+

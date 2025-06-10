@@ -1,77 +1,17 @@
 <?php
-require_once 'controller/aprendiz/aprendizController.php';
-
-// Llamar al controlador
-$controlador = new aprendizController();
-
-// Manejo de las acciones
-if (isset($_GET['action']) && $_GET['action'] === 'guardar_aprendiz') {
-    $controlador->guardarAprendiz();
-} else {
-    // Mostrar la lista de aprendices (por ejemplo, ver aprendices)
-    $aprendices = $controlador->verAprendices();
-}
+    require_once ("c:/xampp/htdocs/CRUD_APRENDICES/view/head/head.php");
 ?>
-
-<!-- Incluir el archivo head.php -->
-<?php require_once 'head.php'; ?>
-
-<body>
-<div class="container">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                <h1 class="text-center">Lista de Aprendices</h1>
-                <div class="text-center mb-3">
-                    <a href="view/crear_aprendiz.php" class="btn btn-sm btn-primary">
-                        <i class="fa-solid fa-plus"></i> Crear Aprendiz
-                    </a>
-                    <a href='view/ver_programas.php?id={$id}' class='btn btn-info btn-sm'><i class='fa-solid fa-eye'></i> Ver programas</a>
-                </div>
-
-                <table class="table table-sm table-hover table-responsive">
-                    <thead>
-                        <tr class="text-center">
-                            <th scope="col">No.</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Edad</th>
-                            <th colspan="3" scope="col">Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        // Verificar si hay aprendices
-                        if (!empty($aprendices) && is_array($aprendices)) {
-                            $contador = 1;
-                            foreach ($aprendices as $row) {
-                                $id = htmlspecialchars($row['id']);
-                                $nombre = htmlspecialchars($row['primer_nombre']);
-                                $fecha_nac = new DateTime($row['fecha_nac']);
-                                $edad = (new DateTime())->diff($fecha_nac)->y;
-
-                                echo "<tr class='text-center'>";
-                                echo "<th scope='row'>{$contador}</th>";
-                                echo "<td>{$nombre}</td>";
-                                echo "<td>{$edad} años</td>";
-                                echo "<td><a href='view/ver_aprendices.php?id={$id}' class='btn btn-info btn-sm'><i class='fa-solid fa-eye'></i> Ver</a></td>";
-                                echo "<td><a href='view/modificar_aprendiz.php?id={$id}' class='btn btn-warning btn-sm'><i class='fa-solid fa-pencil'></i> Editar</a></td>";
-                                echo "<td><a href='view/eliminar_aprendiz.php?id={$id}' class='btn btn-danger btn-sm' onclick='return confirm(\"¿Estás seguro de que deseas eliminar este aprendiz?\")'><i class='fa-solid fa-circle-xmark'></i> Eliminar</a></td>";
-
-                                echo "</tr>";
-                                $contador++;
-                            }
-                        } else {
-                            echo "<tr><td colspan='6' class='text-center'>No hay aprendices disponibles.</td></tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div class="card text-center mt-4">
+    <div class="card-body">
+            <h5 class="card-title">Acciones Rápidas</h5>
+            <a href="/CRUD_APRENDICES/view/aprendices/crear.php" class="btn btn-primary m-2">
+                <i class="fas fa-user-plus"></i> Agregar Aprendiz
+            </a>
+            <a href="https://soysena-my.sharepoint.com/:v:/g/personal/deyson_urrego_soy_sena_edu_co/EenbOm5wx6xAoJT1hn8Jb7MBA__KM881krsm3emPC0vhMw?e=WLbhIJ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D" class="btn btn-danger m-2" target="_blank">
+                <i class="fab fa-youtube"></i> Video de Implementación
+            </a>
     </div>
 </div>
-
-<!-- Incluir scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<?php
+    require_once ("c:/xampp/htdocs/CRUD_APRENDICES/view/head/footer.php");
+?>
